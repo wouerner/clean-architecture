@@ -1,13 +1,6 @@
 # clean-architecture
 
-
-Claro, esses são pontos importantes ao discutir o SRP no contexto da Clean Architecture.
-
-### Subtema 1: Duplicação Acidental
-A duplicação acidental ocorre quando o mesmo pedaço de lógica é repetido em várias partes do código. Isso pode acontecer quando uma classe ou função tem múltiplas responsabilidades. Por exemplo, se a validação de dados é feita em vários lugares diferentes, há uma duplicação acidental desse código de validação. Ao seguir o SRP, a validação pode ser encapsulada em uma única classe ou função, evitando a duplicação e facilitando futuras alterações na validação.
-
-### Subtema 2: Fusões de Responsabilidade
-A fusão de responsabilidades é o oposto da duplicação acidental. Isso acontece quando múltiplas responsabilidades são agrupadas em uma única classe ou função, tornando-a excessivamente complexa e difícil de entender. Por exemplo, uma classe que lida com a lógica de negócios, interação com o banco de dados e manipulação da interface do usuário está fundindo várias responsabilidades em um único lugar. Ao aplicar o SRP, essas responsabilidades podem ser separadas em diferentes componentes, tornando o sistema mais flexível e mais fácil de manter.
+## SRP no contexto da Clean Architecture.
 
 ### Definição do SRP no Contexto da Clean Architecture
 No contexto da Clean Architecture, o SRP é aplicado em vários níveis. Em um nível mais macro, a arquitetura é dividida em camadas, como a de apresentação, lógica de negócios e dados. Cada camada tem uma responsabilidade claramente definida e não deve se sobrepor. Por exemplo, a camada de apresentação lida apenas com a interface do usuário, enquanto a camada de lógica de negócios se concentra apenas na lógica específica do domínio.
@@ -16,11 +9,11 @@ Em um nível mais micro, como na definição de classes e funções, o SRP é ap
 
 Ao abordar o SRP no contexto da Clean Architecture, é crucial destacar como a separação de responsabilidades em diferentes camadas e componentes de software promove a manutenibilidade, a flexibilidade e a testabilidade do sistema como um todo.
 
+## Problemas que podem ser resolvidos com SRP.
 
+### Subtema 1: Duplicação Acidental
+A duplicação acidental ocorre quando o mesmo pedaço de lógica é repetido em várias partes do código. Isso pode acontecer quando uma classe ou função tem múltiplas responsabilidades. Por exemplo, se a validação de dados é feita em vários lugares diferentes, há uma duplicação acidental desse código de validação. Ao seguir o SRP, a validação pode ser encapsulada em uma única classe ou função, evitando a duplicação e facilitando futuras alterações na validação.
 
-
-
-Claro, podemos nomear os atores de acordo com seus cargos em uma empresa:
 
 ```python
 # Duplicação Acidental com diferentes requisitos de validação
@@ -69,9 +62,7 @@ def alterar_email_conta(email_atual, novo_email):
 
 Neste exemplo, temos o Gerente de Cadastro de Usuários, o Analista de Comunicação e o Administrador de Contas, cada um responsável por validar emails de acordo com os requisitos específicos de sua área na empresa. Isso ilustra como diferentes departamentos ou cargos podem necessitar de validações distintas para o mesmo conceito (como validação de email), levando à duplicação acidental de lógica de validação.
 
-
-
-
+#### Possivel solução
 Para resolver o problema de duplicação acidental de lógica de validação de email, podemos utilizar abordagens de refatoração e design mais flexível, como a criação de uma única função de validação reutilizável ou a utilização de estratégias de validação configuráveis. Vou apresentar uma possível solução utilizando uma função de validação genérica com estratégias configuráveis:
 
 ```python
@@ -122,9 +113,17 @@ Nesta abordagem, criamos uma função `validar_email` genérica que recebe uma e
 Isso evita a duplicação de lógica, pois todas as áreas usam a mesma função `validar_email`, mas passam estratégias diferentes com base em seus requisitos. Se os requisitos de validação mudarem, é necessário modificar apenas a estratégia de validação correspondente, mantendo a consistência em todo o sistema.
 
 
-Claro, vou criar um exemplo simples de fusão de responsabilidades e então propor uma solução utilizando os princípios da Clean Architecture.
 
-### Exemplo de Fusão de Responsabilidade:
+### Subtema 2: Fusões de Responsabilidade
+A fusão de responsabilidades é o oposto da duplicação acidental. Isso acontece quando múltiplas responsabilidades são agrupadas em uma única classe ou função, tornando-a excessivamente complexa e difícil de entender. Por exemplo, uma classe que lida com a lógica de negócios, interação com o banco de dados e manipulação da interface do usuário está fundindo várias responsabilidades em um único lugar. Ao aplicar o SRP, essas responsabilidades podem ser separadas em diferentes componentes, tornando o sistema mais flexível e mais fácil de manter.
+
+
+
+
+
+
+
+#### Exemplo de Fusão de Responsabilidade:
 
 Suponha que temos uma classe `GestorTarefas` que lida com várias responsabilidades: adicionar uma tarefa, salvar no banco de dados e enviar notificações sobre a tarefa adicionada.
 
@@ -147,8 +146,7 @@ class GestorTarefas:
 
 Esta classe está fundindo responsabilidades ao lidar com a lógica de adicionar uma tarefa, salvá-la no banco de dados e enviar notificações. Isso viola o princípio da separação de preocupações da Clean Architecture.
 
-### Solução usando Clean Architecture:
-
+#### Possivel Solução:
 Uma maneira de resolver isso seria dividir essas responsabilidades em diferentes camadas da Clean Architecture, como a camada de lógica de negócios e a de infraestrutura, por exemplo.
 
 ```python
