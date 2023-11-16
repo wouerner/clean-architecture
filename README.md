@@ -1,6 +1,5 @@
 # clean-architecture
-
-## SRP no contexto da Clean Architecture.
+## Clean Architecture e SRP: Definição e Exemplos Práticos
 
 ### Definição do SRP no Contexto da Clean Architecture
 No contexto da Clean Architecture, o SRP é aplicado em vários níveis. Em um nível mais macro, a arquitetura é dividida em camadas, como a de apresentação, lógica de negócios e dados. Cada camada tem uma responsabilidade claramente definida e não deve se sobrepor. Por exemplo, a camada de apresentação lida apenas com a interface do usuário, enquanto a camada de lógica de negócios se concentra apenas na lógica específica do domínio.
